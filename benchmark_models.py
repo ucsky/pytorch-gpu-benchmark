@@ -9,7 +9,7 @@ import pandas
 import argparse
 import os
 from plot import *
-
+import sys
 print_info()
 
 MODEL_LIST = {
@@ -21,6 +21,8 @@ MODEL_LIST = {
 
 precision=["single","half",'double']
 device_name=torch.cuda.get_device_name(0)
+
+device_name=device_name.replace(' ','_').replace('(','').replace(')','')
 
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch Benchmarking')
